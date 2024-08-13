@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Common Events</title>
+    <style>
+        .highlight {
+            border: 2px solid blue;
+            background-color: #e0f7fa;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Task 1: Window Resize Event -->
+    <h3>Task 1: Window Resize Event</h3>
+    <p>Resize the browser window to see the dimensions logged in the console.</p>
+    <!-- Task 2: Focus and Blur Events -->
+    <h3>Task 2: Focus and Blur Events</h3>
+    <p>When you click password or username only that location will focused with blue colour other will blur</p>
+    <form>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+    </form>
+    <!-- Task 3: DOMContentLoaded Event -->
+    <h3>Task 3: DOMContentLoaded Event</h3>
+    <p id="message"></p>
+
+    <script>
+        // Task 1: Log window dimensions (resize event) whenever the browser window is resized
+        window.addEventListener("resize", function() {
+            console.log("Window dimensions: " + window.innerWidth + "x" + window.innerHeight);
+        });
+
+        // Task 2: Highlight a form field when it receives focus and remove the highlight when it loses focus
+        document.getElementById("username").addEventListener("focus", function() {
+            this.classList.add("highlight");
+        });
+        document.getElementById("username").addEventListener("blur", function() {
+            this.classList.remove("highlight");
+        });
+
+        document.getElementById("password").addEventListener("focus", function() {
+            this.classList.add("highlight");
+        });
+        document.getElementById("password").addEventListener("blur", function() {
+            this.classList.remove("highlight");
+        });
+
+        // Task 3: Display a message when the DOM content is fully loaded (DOMContentLoaded event)
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("message").textContent = "The DOM content is fully loaded!";
+        });
+    </script>
+
+</body>
+</html>

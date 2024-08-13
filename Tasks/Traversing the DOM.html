@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Traversal Example</title>
+    <style>
+        .parent {
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .first-child {
+            color: red;
+            font-size: x-large;
+        }
+        .last-child {
+            color: green;
+            font-size: xx-large;
+        }
+    </style>
+</head>
+<body>
+    <!-- Task 1: Parent with Child -->
+    <div class="parent" id="parent1">
+        <p id="child1">The Border is because of parentElement(Task 1).</p>
+    </div>
+
+    <!-- Task 2: Parent <div> with children -->
+    <div class="parent" id="parent2">
+        <p>First child with different font level(Task 2)</p>
+        <p>Middle child</p>
+        <p>Last child with different font level(Task 2)</p>
+    </div>
+
+    <!-- Task 3: Sibling elements -->
+    <div class="parent" id="parent3">
+        <p>Sibling 1 (Task 3)</p>
+        <p>Sibling 2 (Task 3)</p>
+        <p>Sibling 3 (Task 3)</p>
+    </div>
+
+    <script>
+        // Task 1: Traverse from a child element to its parent and change the parent's border color
+        var childElement = document.getElementById("child1");
+        var parentElement = childElement.parentElement;
+        parentElement.style.border = "2px solid blue";
+
+        // Task 2: Find the first and last child elements of a parent <div> and apply different styles to them
+        var parentDiv = document.getElementById("parent2");
+        var firstChild = parentDiv.firstElementChild;
+        var lastChild = parentDiv.lastElementChild;
+
+        firstChild.classList.add("first-child");
+        lastChild.classList.add("last-child");
+
+        // Task 3: Traverse through sibling elements and apply incremental styling changes
+        var siblings = document.getElementById("parent3").children;
+        for (var i = 0; i < siblings.length; i++) {
+            siblings[i].style.fontSize = (14 + i * 2) + "px"; // Increment font size
+            siblings[i].style.color = `rgb(${100 + i * 50}, 0, 0)`; // Increment color shade
+        }
+    </script>
+</body>
+</html>

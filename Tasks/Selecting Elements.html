@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecting Elements</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Week 5(DOM MANUPULATION)</h1>
+    <!-- Task 1: Element with ID -->
+    <div id="myElement">Selecting an element by id using getElementById(Task 1).</div>
+
+    <!-- Task 2: Elements with specific class name -->
+    <div class="item">Selecting an element by id using getElementsByClassName(Task 2)</div>
+    <div class="item">all tags in the class will be selected(Task 2)</div>
+    <div class="item">(Task 2)</div>
+
+    <!-- Task 3: List items within a <ul> -->
+    <ul>
+        <li>querySelectorAll is used to select list(Task 3)</li>
+        <li>Full stack divided into three main blocks(Task 3)</li>
+        <li>Frontend,Backend,DataBase(Task 3)</li>
+    </ul>
+
+    <script>
+        // Task 1: Select an element by its ID and change its background color
+        var element = document.getElementById("myElement");
+        element.style.backgroundColor = "pink";
+
+        // Task 2: Select all elements with a specific class name and toggle a class on each of them
+        var elements = document.getElementsByClassName("item");
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].classList.toggle("highlight");
+        }
+
+        // Task 3: Select all <li> elements within a <ul> and log their text content
+        var listItems = document.querySelectorAll("ul li");
+        listItems.forEach(function(item) {
+            console.log(item.textContent);
+        });
+    </script>
+</body>
+</html>

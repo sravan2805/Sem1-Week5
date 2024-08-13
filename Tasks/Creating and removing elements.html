@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating and Removing Elements</title>
+    <style>
+        .container {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <!-- Task 1: Create and Append a New <li> Element -->
+    <h3>Task 1: Add New List Item</h3>
+    <ul id="myList">
+        <li>Existing Item 1</li>
+        <li>Existing Item 2</li>
+    </ul>
+    <button onclick="addListItem()">click to add "New List"</button>
+    <hr>
+    <!-- Task 2: Remove Last Child Element -->
+    <h3>Task 2:Click to Remove Last Child Element</h3>
+    <div id="myDiv" class="container">
+        <p>Child Element 1</p>
+        <p>Child Element 2</p>
+        <p>Child Element 3</p>
+    </div>
+    <button onclick="removeLastChild()">Remove Last Child</button>
+    <hr>
+    <!-- Task 3: Clone a <div> and Append it Elsewhere -->
+    <h3>Task 3: Clone and Append a <div></h3>
+    <div id="originalDiv" class="container">
+        <p>Original Child 1</p>
+        <p>Original Child 2</p>
+    </div>
+    <button onclick="cloneDiv()">Clone and Append</button>
+    <div id="cloneTarget"></div>
+    <script>
+        // Task 1: Create a new <li> element, add text content, and append it to an existing <ul>
+        function addListItem() {
+            var newItem = document.createElement("li");
+            newItem.textContent = "New Item";
+            document.getElementById("myList").appendChild(newItem);
+        }
+        // Task 2: Remove the last child element from a <div>
+        function removeLastChild() {
+            var parentDiv = document.getElementById("myDiv");
+            if (parentDiv.lastElementChild) {
+                parentDiv.removeChild(parentDiv.lastElementChild);
+            }
+        }
+        // Task 3: Clone a <div> with its child elements and append the clone to another part of the document
+        function cloneDiv() {
+            var originalDiv = document.getElementById("originalDiv");
+            var clone = originalDiv.cloneNode(true); // true means deep clone (with child elements)
+            document.getElementById("cloneTarget").appendChild(clone);
+        }
+    </script>
+</body>
+</html>

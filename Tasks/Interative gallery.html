@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Gallery</title>
+    <style>
+        #gallery {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #largeImageContainer {
+            width: 80%;
+            margin: 0 auto;
+            border: 2px solid #ddd;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #largeImage {
+            width: 100%;
+            max-height: 500px;
+            object-fit: contain;
+        }
+
+        #thumbnails {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        #thumbnails img {
+            width: 120px;
+            height: 80px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        #thumbnails img:hover, #thumbnails img.active {
+            transform: scale(1.2);
+            border-color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="gallery">
+        <div id="largeImageContainer">
+            <img id="largeImage" src="../images/Sky.jpg" alt="">
+        </div>
+        <div id="thumbnails">
+            <img src="../images/flower.jpg" alt="Thumbnail 1" data-large="">
+            <img src="../images/city.jpg" alt="Thumbnail 2" data-large="image2.jpg">
+            <img src="../images/lake.jpg" alt="Thumbnail 3" data-large="image3.jpg">
+            <img src="../images/Road.jpg" alt="Thumbnail 4" data-large="image4.jpg">
+        </div>
+    </div>
+
+    <script>
+        const thumbnails = document.querySelectorAll('#thumbnails img');
+        const largeImage = document.getElementById('largeImage');
+        thumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener('click', function() {
+                const largeSrc = thumbnail.getAttribute('data-large');
+                largeImage.src = largeSrc;
+
+                // Remove the 'active' class from all thumbnails
+                thumbnails.forEach(img => img.classList.remove('active'));
+
+                // Add the 'active' class to the clicked thumbnail
+                thumbnail.classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>

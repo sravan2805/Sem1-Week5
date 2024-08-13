@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Tasks</title>
+    <style>
+        body {
+            background-color: yellowgreen;
+        }
+        .image-container img {
+            width: 300px;
+            display: block;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Task 1: Change Text Content -->
+    <p>The current status is: <span id="status">Inactive</span></p>
+    <button onclick="changeText()">Change Status</button>
+    <hr>
+    <!-- Task 2: Update Image Source -->
+    <div class="image-container">
+        <img id="myImage" src="../images/flower.jpg" alt="Old Image">
+    </div>
+    <button onclick="updateImage()">Change Image</button>
+    <hr>
+    <!-- Task 3: Toggle Background Color -->
+    <button onclick="toggleBackgroundColor()">Toggle Background Color</button>
+    <script>
+        // Task 1: Change the text content of a <span> element dynamically
+        function changeText() {
+            var spanElement = document.getElementById("status");
+            spanElement.textContent = "Active";
+        }
+        // Task 2: Update the src attribute of an <img> tag with a new image URL
+        function updateImage() {
+            var imgElement = document.getElementById("myImage");
+            imgElement.src = "https://th.bing.com/th/id/R.13820971a962ffbeb63a8fef36185b16?rik=vZ3lu%2blbhy6jxw&riu=http%3a%2f%2fwallup.net%2fwp-content%2fuploads%2f2016%2f03%2f10%2f319576-photography-landscape-nature-water-grass-trees-plants-sunrise-lake.jpg&ehk=6WS2p9KknQa9F%2bgAH16n44NReuUyS2rzXah2zy7kiAw%3d&risl=&pid=ImgRaw&r=0"; // Replace with the new image URL
+        }
+        // Task 3: Toggle between two different background colors on a button click
+        function toggleBackgroundColor() {
+            var bodyElement = document.body;
+            if (bodyElement.style.backgroundColor === "pink") {
+                bodyElement.style.backgroundColor = "lightblue";
+            } else {
+                bodyElement.style.backgroundColor = "pink";
+            }
+        }
+    </script>
+</body>
+</html>

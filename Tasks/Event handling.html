@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling Tasks</title>
+    <style>
+        #mouseTracker {
+            width: 300px;
+            height: 200px;
+            border: 2px solid #333;
+            margin-top: 20px;
+            position: relative;
+            text-align: center;
+            line-height: 200px;
+            font-size: 16px;
+        }
+        #coordinates {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 5px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Task 1: Click Event Listener -->
+    <h3>Task 1: Click Event Listener</h3>
+    <button id="logButton">Click Me</button>
+    <hr>
+    <!-- Task 2: Form Validation -->
+    <h3>Task 2: Form Validation</h3>
+    <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+    <p id="formMessage"></p>
+    <hr>
+    <!-- Task 3: Mouse Movement Tracking -->
+    <h3>Task 3: Mouse Movement Tracking</h3>
+    <div id="mouseTracker">
+        Move your mouse here
+        <div id="coordinates"></div>
+    </div>
+    <script>
+        // Task 1: Add a click event listener to a button that logs a message when clicked
+        document.getElementById("logButton").addEventListener("click", function() {
+            console.log("Button was clicked!");
+        });
+        // Task 2: Implement form validation that checks if input fields are not empty on form submission
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var message = "";
+
+            if (name === "" || email === "") {
+                message = "Please fill out all fields.";
+                event.preventDefault(); // Prevent form from submitting
+            } else {
+                message = "Form submitted successfully!";
+            }
+
+            document.getElementById("formMessage").textContent = message;
+        });
+        // Task 3: Track mouse movement within a specific <div> and update its coordinates on the screen
+        document.getElementById("mouseTracker").addEventListener("mousemove", function(event) {
+            var x = event.offsetX;
+            var y = event.offsetY;
+            document.getElementById("coordinates").textContent = "X: " + x + " Y: " + y;
+        });
+    </script>
+
+</body>
+</html>
